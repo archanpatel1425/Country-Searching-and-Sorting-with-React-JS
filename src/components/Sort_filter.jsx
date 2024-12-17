@@ -4,11 +4,16 @@ import CountryCard from './CountryCard';
 
 const Sort_filter = ({ regionName, searchText, searchBy, hideviewmore }) => {
     const [CountryData, setCountryData] = useState([])
-    
+
     useEffect(() => {
         const fatchData = async () => {
-            const res = await axios.get('https://restcountries.com/v3.1/all')
-            setCountryData(res.data)
+            try {
+                const res = await axios.get('https://restcountries.com/v3.1/all')
+                setCountryData(res.data)
+            }
+            catch (error) {
+                console.error(error)
+            }
         }
         fatchData()
     }, [])
