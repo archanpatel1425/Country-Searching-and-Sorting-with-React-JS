@@ -7,12 +7,15 @@ const Sort_filter = ({ regionName, searchText, searchBy, hideviewmore }) => {
     useEffect(() => {
         const fatchData = async () => {
             try {
-                const res = await fetch('https://restcountries.com/v3.1/all')
-                setCountryData(res.data)
+                const res = await fetch('https://restcountries.com/v3.1/all', {
+                    method: 'GET',
+                });
+                const data = await res.json();
+                console.log(data);
+            } catch (error) {
+                console.error('There was a problem with the fetch operation:', error);
             }
-            catch (error) {
-                console.error(error)
-            }
+
         }
         fatchData()
     }, [])

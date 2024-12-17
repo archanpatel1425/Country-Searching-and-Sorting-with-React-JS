@@ -8,8 +8,15 @@ const Country = () => {
     const [CountryData, setCountryData] = useState([])
     useEffect(() => {
         const fatchData = async () => {
-            const res = await fetch('https://restcountries.com/v3.1/all')
-            setCountryData(res.data)
+            try {
+                const res = await fetch('https://restcountries.com/v3.1/all', {
+                    method: 'GET',
+                });
+                const data = await res.json();
+                setCountryData(data)
+            } catch (error) {
+                console.error('There was a problem with the fetch operation:', error);
+            }
         }
         fatchData()
     }, [])

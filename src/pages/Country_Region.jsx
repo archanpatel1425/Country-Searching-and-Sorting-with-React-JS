@@ -7,10 +7,17 @@ const Country_Region = () => {
 
     useEffect(() => {
         const fatchData = async () => {
-            const res = await fetch('https://restcountries.com/v3.1/all')
-            const uniqueRegions = [...new Set(res.data.map((value) => value.region))];
-            console.log(uniqueRegions)
-            setRegions(uniqueRegions);
+            try {
+                const res = await fetch('https://restcountries.com/v3.1/all', {
+                    method: 'GET',
+                });
+                const data = await res.json();
+                const uniqueRegions = [...new Set(data.map((value) => value.region))];
+                console.log(uniqueRegions)
+                setRegions(uniqueRegions);
+            } catch (error) {
+                console.error('There was a problem with the fetch operation:', error);
+            }
         }
         fatchData()
     }, [])
