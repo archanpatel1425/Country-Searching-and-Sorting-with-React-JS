@@ -1,4 +1,3 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Header from '../components/Header'
@@ -11,7 +10,7 @@ const Region = () => {
 
     useEffect(() => {
         const fatchData = async () => {
-            const res = await axios.get('https://restcountries.com/v3.1/all')
+            const res = await fetch('https://restcountries.com/v3.1/all')
             setCountryData(res.data)
         }
         fatchData()

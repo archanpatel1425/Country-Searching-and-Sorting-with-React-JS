@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -8,7 +7,7 @@ const Country_Region = () => {
 
     useEffect(() => {
         const fatchData = async () => {
-            const res = await axios.get('https://restcountries.com/v3.1/all')
+            const res = await fetch('https://restcountries.com/v3.1/all')
             const uniqueRegions = [...new Set(res.data.map((value) => value.region))];
             console.log(uniqueRegions)
             setRegions(uniqueRegions);

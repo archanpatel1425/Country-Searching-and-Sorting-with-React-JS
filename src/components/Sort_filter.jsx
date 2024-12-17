@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import CountryCard from './CountryCard';
 
@@ -8,7 +7,7 @@ const Sort_filter = ({ regionName, searchText, searchBy, hideviewmore }) => {
     useEffect(() => {
         const fatchData = async () => {
             try {
-                const res = await axios.get('https://restcountries.com/v3.1/all')
+                const res = await fetch('https://restcountries.com/v3.1/all')
                 setCountryData(res.data)
             }
             catch (error) {
