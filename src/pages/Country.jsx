@@ -10,7 +10,7 @@ const Country = () => {
     const [CountryData, setCountryData] = useState([])
         const agent = new https.Agent({
             keepAlive: true,  // Enables persistent connections
-            protocol: 'http:', // Forces HTTP/1.1 instead of HTTP/2
+            protocol: 'https:', // Forces HTTP/1.1 instead of HTTP/2
         });
     useEffect(() => {
         const fatchData = async () => {
