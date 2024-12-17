@@ -11,6 +11,7 @@ const Sort_filter = ({ regionName, searchText, searchBy, hideviewmore }) => {
                     method: 'GET',
                 });
                 const data = await res.json();
+                setCountryData(data)
                 console.log(data);
             } catch (error) {
                 console.error('There was a problem with the fetch operation:', error);
