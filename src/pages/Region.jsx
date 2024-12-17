@@ -10,7 +10,11 @@ const Region = () => {
     const [searchBy, setSearchBy] = useState('All')
     useEffect(() => {
         const fatchData = async () => {
-            const res = await axios.get('https://restcountries.com/v3.1/all')
+            const res = await axios.get('https://restcountries.com/v3.1/all', {
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            })
             setCountryData(res.data)
         }
         fatchData()
