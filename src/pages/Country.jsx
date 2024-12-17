@@ -11,7 +11,6 @@ const Country = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                httpAgent: agent,
             })
             setCountryData(res.data)
         }

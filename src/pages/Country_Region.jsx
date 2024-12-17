@@ -11,7 +11,6 @@ const Country_Region = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                httpAgent: agent,
             })
             const uniqueRegions = [...new Set(res.data.map((value) => value.region))];
             console.log(uniqueRegions)
