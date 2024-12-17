@@ -15,6 +15,7 @@ const Region = () => {
                     method: 'GET',
                 });
                 const data = await res.json();
+                setCountryData(data)    
             } catch (error) {
                 console.error('There was a problem with the fetch operation:', error);
             }
