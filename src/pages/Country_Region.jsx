@@ -7,10 +7,11 @@ const Country_Region = () => {
     const [regions, setRegions] = useState([])
     useEffect(() => {
         const fatchData = async () => {
-            const res = await axios.get('https://restcountries.com/v3.1/all', {
+            const res =  await axios.get('https://restcountries.com/v3.1/all', {
                 headers: {
                     'Content-Type': 'application/json',
-                }
+                },
+                httpAgent: agent,
             })
             const uniqueRegions = [...new Set(res.data.map((value) => value.region))];
             console.log(uniqueRegions)
