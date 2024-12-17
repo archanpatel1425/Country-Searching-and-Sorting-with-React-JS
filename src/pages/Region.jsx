@@ -15,11 +15,7 @@ const Region = () => {
     });
     useEffect(() => {
         const fatchData = async () => {
-            const res = await axios.get('https://restcountries.com/v3.1/all', {
-                headers: {
-                    'Content-Type': 'application/json',
-                }, httpsAgent: agent,
-            })
+            const res = await axios.get('https://restcountries.com/v3.1/all')
             setCountryData(res.data)
         }
         fatchData()

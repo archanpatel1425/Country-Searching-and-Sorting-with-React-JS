@@ -1,22 +1,18 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import axios from 'axios';
 import https from 'https';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Country_Region = () => {
     const navigate = useNavigate()
     const [regions, setRegions] = useState([])
-        const agent = new https.Agent({
-            keepAlive: true,  // Enables persistent connections
-            protocol: 'https:', // Forces HTTP/1.1 instead of HTTP/2
-        });
+    const agent = new https.Agent({
+        keepAlive: true,  // Enables persistent connections
+        protocol: 'https:', // Forces HTTP/1.1 instead of HTTP/2
+    });
     useEffect(() => {
         const fatchData = async () => {
-            const res =  await axios.get('https://restcountries.com/v3.1/all', {
-                headers: {
-                    'Content-Type': 'application/json',
-                }, httpsAgent: agent,
-            })
+            const res = await axios.get('https://restcountries.com/v3.1/all')
             const uniqueRegions = [...new Set(res.data.map((value) => value.region))];
             console.log(uniqueRegions)
             setRegions(uniqueRegions);

@@ -1,24 +1,20 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import CountryCard from '../components/CountryCard'
+import axios from 'axios';
 import https from 'https';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import CountryCard from '../components/CountryCard';
 
 
 const Country = () => {
     const { countryName } = useParams()
     const [CountryData, setCountryData] = useState([])
-        const agent = new https.Agent({
-            keepAlive: true,  // Enables persistent connections
-            protocol: 'https:', // Forces HTTP/1.1 instead of HTTP/2
-        });
+    const agent = new https.Agent({
+        keepAlive: true,  // Enables persistent connections
+        protocol: 'https:', // Forces HTTP/1.1 instead of HTTP/2
+    });
     useEffect(() => {
         const fatchData = async () => {
-            const res =  await axios.get('https://restcountries.com/v3.1/all', {
-                headers: {
-                    'Content-Type': 'application/json',
-                }, httpsAgent: agent,
-            })
+            const res = await axios.get('https://restcountries.com/v3.1/all')
             setCountryData(res.data)
         }
         fatchData()
