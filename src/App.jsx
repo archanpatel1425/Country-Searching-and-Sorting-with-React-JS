@@ -21,14 +21,18 @@ const App = () => {
   }, []);
   return (
     <div>
-      <Router>
-        <Routes>
-          <Route path='/' element={<HomePage />} />
-          <Route path='/country/:countryName' element={<Country />} />
-          <Route path='/country-region' element={<Country_Region />} />
-          <Route path='region/:regionName' element={<Region />} />
-        </Routes>
-      </Router>
+      {loading ? (
+        <div>Loading...</div> // Show a loading message or spinner
+      ) : (
+        <Router>
+          <Routes>
+            <Route path='/' element={<HomePage />} />
+            <Route path='/country/:countryName' element={<Country />} />
+            <Route path='/country-region' element={<Country_Region />} />
+            <Route path='region/:regionName' element={<Region />} />
+          </Routes>
+        </Router>
+  )}
     </div>
   )
 }
