@@ -3,13 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="//script.crazyegg.com/pages/scripts/0127/9523.js" async></script>
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <title>Vite + React</title>
   </head>
   <body>
-    <div>H1234567</div>
+    <div>H123456</div>
     <div id="root"></div>
+
     <script type="module" src="/src/main.jsx"></script>
+
+    <!-- Lazy load Crazy Egg script after page load -->
+    <script>
+      window.addEventListener('load', () => {
+        const script = document.createElement('script');
+        script.src = '//script.crazyegg.com/pages/scripts/0127/9523.js';
+        script.defer = true;
+        document.body.appendChild(script);
+      });
+    </script>
   </body>
 </html>
