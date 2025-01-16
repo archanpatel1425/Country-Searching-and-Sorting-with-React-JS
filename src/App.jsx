@@ -7,10 +7,11 @@ import Region from './pages/Region'
 const App = () => {
 
 
-  
+
   return (
     <div>
-        <Router>
+      <Router>
+        
           <Routes>
             <Route path='/' element={<HomePage />} />
             <Route path='/country/:countryName' element={<Country />} />
