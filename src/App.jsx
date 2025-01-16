@@ -5,7 +5,6 @@ import Country_Region from './pages/Country_Region'
 import HomePage from './pages/HomePage'
 import Region from './pages/Region'
 const App = () => {
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const handlePageLoad = () => {
@@ -24,9 +23,6 @@ const App = () => {
   
   return (
     <div>
-      {loading ? (
-        <div>Loading...</div> // Show a loading message or spinner
-      ) : (
         <Router>
           <Routes>
             <Route path='/' element={<HomePage />} />
@@ -35,7 +31,6 @@ const App = () => {
             <Route path='region/:regionName' element={<Region />} />
           </Routes>
         </Router>
-  )}
     </div>
   )
 }
