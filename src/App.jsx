@@ -8,19 +8,20 @@ const App = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://script.crazyegg.com/pages/scripts/0127/9523.js'; // replace XXXXX with your Crazy Egg ID
-    script.async = false;
-    script.onload = () => {
-      setLoading(false); // Hide the loading indicator after Crazy Egg script is loaded
+    const handlePageLoad = () => {
+      const script = document.createElement('script');
+      script.src = 'https://script.crazyegg.com/pages/scripts/0127/9523.js'; 
+      script.async = true;
+      document.body.appendChild(script);
     };
-
-    document.head.appendChild(script);
-
+  
+    window.addEventListener('load', handlePageLoad);
+  
     return () => {
-      document.head.removeChild(script); // Cleanup script when component unmounts
+      window.removeEventListener('load', handlePageLoad);
     };
   }, []);
+  
   return (
     <div>
       {loading ? (
