@@ -37,6 +37,7 @@ const CountryCard = ({
             <div dangerouslySetInnerHTML={{ __html: `Country region: ${highlightText(countryRegion, searchText)}` }} />
             <div dangerouslySetInnerHTML={{ __html: `Country code: ${highlightText(countryCode, searchText)}` }} />
 
+            
             {countryBorders && (
                 <div>
                     <span>Country borders: </span>
