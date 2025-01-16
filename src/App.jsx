@@ -5,12 +5,14 @@ import Country_Region from './pages/Country_Region'
 import HomePage from './pages/HomePage'
 import Region from './pages/Region'
 const App = () => {
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://script.crazyegg.com/pages/scripts/0127/9523.js'; // replace XXXXX with your Crazy Egg ID
-    script.async = false; // Load synchronously to prevent FOUC (flash of unstyled content)
+    script.async = false;
     script.onload = () => {
-      console.log('Crazy Egg script loaded');
+      setLoading(false); // Hide the loading indicator after Crazy Egg script is loaded
     };
 
     document.head.appendChild(script);
